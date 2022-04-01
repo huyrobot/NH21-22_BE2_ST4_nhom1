@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ControllerDauTien;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +33,7 @@ use App\Http\Controllers\ProductController;
 
 // });
 
-Route::get('/', [ControllerDauTien::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 Route::post('register', [ControllerDauTien::class, 'register']);
 Route::resource('/product', ProductController::class);
 /*
