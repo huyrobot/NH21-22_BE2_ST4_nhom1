@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BlogdetailController extends Controller
+class BlogDetailController extends Controller
 {
-    function blogdetail(){
+    function blogDetailFunction(){
         return view('blog-detail');
     }
 }
