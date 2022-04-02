@@ -1,9 +1,8 @@
-@extends('index')
-@section('header_home')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Home</title>
+	<title>Coza Store</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -40,7 +39,7 @@
 <body class="animsition">
 	
 	<!-- Header -->
-	<header>
+	<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
@@ -83,11 +82,7 @@
 						<ul class="main-menu">
 							<li class="active-menu">
 								<a href="{{ asset('index.html') }}">Home</a>
-								<ul class="sub-menu">
-									<li><a href="{{ asset('index.html') }}">Homepage 1</a></li>
-									<li><a href="{{ asset('home-02.html') }}">Homepage 2</a></li>
-									<li><a href="{{ asset('home-03.html') }}">Homepage 3</a></li>
-								</ul>
+								
 							</li>
 
 							<li>
@@ -243,6 +238,7 @@
 		</div>
 	</header>
 
+
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
@@ -327,13 +323,13 @@
 			</div>
 		</div>
 	</div>
-@endsection
+
 		
+	@yield('content')
 
-	
 
 
-@section('footer_home')
+
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
@@ -742,7 +738,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</script>
 <!--===============================================================================================-->
 	<script src="{{ asset('js/main.js') }}"></script>
+	<script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes') }}"></script>
+	<script src="{{ asset('js/map-custom.js') }}"></script>
+	
 
 </body>
 </html>
-@endsection
+
