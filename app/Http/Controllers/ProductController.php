@@ -13,8 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        echo "Đây là trang index";
- 
+            return view('product');
     }
 
     /**

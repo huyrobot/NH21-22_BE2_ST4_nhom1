@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ControllerDauTien;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogdetailController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\ShopingController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductController;
 /*
@@ -33,8 +40,16 @@ use App\Http\Controllers\ProductController;
 // });
 
 Route::get('/', [ControllerDauTien::class, 'index']);
+Route::get('/about', [AboutController::class, 'about']);
+Route::get('/blog', [BlogController::class, 'blog']);
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::get('/blog-detail', [BlogdetailController::class, 'blogdetail']);
+Route::get('/shoping-cart', [ShopingController::class, 'shop']);
+Route::get('/productdetail', [ProductDetailController::class, 'productD']);
+Route::get('/home', [HomeController::class, 'home']);
+Route::get('/product', [ControllerDauTien::class, 'index']);
 Route::post('register', [ControllerDauTien::class, 'register']);
-Route::resource('/product', ProductController::class);
+// Route::resource('/product', ProductController::class);
 /*
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/create', [ProductController::class, 'create']);
