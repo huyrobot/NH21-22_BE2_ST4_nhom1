@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +72,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="{{ url('/') }}" class="logo">
 						<img src="{{ asset('images/icons/logo-01.png') }}" alt="IMG-LOGO">
 					</a>
 
@@ -81,28 +80,28 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="{{ asset('index.html') }}">Home</a>
+								<a href="{{ url('/') }}">Home</a>
 								
 							</li>
 
-							<li>
-								<a href="{{ asset('product.html') }}">Shop</a>
-							</li>
-
 							<li class="label1" data-label1="hot">
-								<a href="{{ asset('shoping-cart.html') }}">Features</a>
+								<a href="{{ url('/product') }}">Products</a>
+							</li>
+
+							<li >
+								<a href="{{ url('/shoping-cart') }}">Shoping Cart</a>
 							</li>
 
 							<li>
-								<a href="{{ asset('blog.html') }}">Blog</a>
+								<a href="{{ url('/blog') }}">Blog</a>
 							</li>
 
 							<li>
-								<a href="{{ asset('about.html') }}">About</a>
+								<a href="{{ url('/about') }}">About</a>
 							</li>
 
 							<li>
-								<a href="{{ asset('contact.html') }}">Contact</a>
+								<a href="{{ url('/contact') }}">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -129,7 +128,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="{{ asset('index.html') }}"><img src="{{ asset('images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
+				<a href="{{ url('/') }}"><img src="{{ asset('images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -188,35 +187,29 @@
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="{{ asset('index.html') }}">Home</a>
-					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
+					<a href="{{ url('/') }}">Home</a>
+					
+					
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="{{ url('/product') }}">Shop</a>
 				</li>
 
 				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+					<a href="{{ url('/shoping-cart') }}" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>
-					<a href="blog.html">Blog</a>
+					<a href="{{ url('/blog') }}">Blog</a>
 				</li>
 
 				<li>
-					<a href="about.html">About</a>
+					<a href="{{ url('/about') }}">About</a>
 				</li>
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="{{ url('/contact') }}">Contact</a>
 				</li>
 			</ul>
 		</div>
@@ -237,7 +230,6 @@
 			</div>
 		</div>
 	</header>
-
 
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
@@ -311,11 +303,11 @@
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						<a href="{{ asset('shoping-cart.html') }}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							View Cart
 						</a>
 
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						<a href="{{ asset('shoping-cart.html') }}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
 						</a>
 					</div>

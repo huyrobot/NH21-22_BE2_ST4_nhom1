@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ControllerDauTien extends Controller
+class IndexController extends Controller
 {
-    function index(){
+    function indexFunction(){
         return view('index');
     }
     function register(Request $request){

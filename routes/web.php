@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ControllerDauTien;
-use App\Http\Controllers\MyController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogDetailController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\ShopingController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +37,17 @@ use App\Http\Controllers\HomeController;
 
 // });
 
-Route::get('/', [HomeController::class, 'index']);
-Route::post('register', [ControllerDauTien::class, 'register']);
-Route::resource('/product', ProductController::class);
+Route::get('/', [IndexController::class, 'indexFunction']);
+Route::get('/about', [AboutController::class, 'aboutFunction']);
+Route::get('/blog', [BlogController::class, 'blogFunction']);
+Route::get('/contact', [ContactController::class, 'contactFunction']);
+Route::get('/blog-detail', [BlogDetailController::class, 'blogDetailFunction']);
+Route::get('/shoping-cart', [ShopingController::class, 'shopFunction']);
+Route::get('/product-detail', [ProductDetailController::class, 'productDetailFunction']);
+Route::get('/product', [ProductController::class, 'productFunction']);
+
+Route::post('register', [IndexController::class, 'register']);
+// Route::resource('/product', ProductController::class);
 /*
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/create', [ProductController::class, 'create']);
