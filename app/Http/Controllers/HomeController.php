@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     function index(){
-        return view('shoping_cart');
+        return view('index');
     }
 }
