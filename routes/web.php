@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ShopingController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,7 @@ use App\Http\Controllers\ProductController;
 
 // });
 
+<<<<<<< HEAD
 Route::get('/', [ControllerDauTien::class, 'index']);
 Route::get('/about', [AboutController::class, 'about']);
 Route::get('/blog', [BlogController::class, 'blog']);
@@ -48,6 +50,9 @@ Route::get('/shoping-cart', [ShopingController::class, 'shop']);
 Route::get('/productdetail', [ProductDetailController::class, 'productD']);
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/product', [ControllerDauTien::class, 'index']);
+=======
+Route::get('/', [HomeController::class, 'index']);
+>>>>>>> 9ec98fa93f2f1a83c158b8f30c8507579c5dd67e
 Route::post('register', [ControllerDauTien::class, 'register']);
 // Route::resource('/product', ProductController::class);
 /*

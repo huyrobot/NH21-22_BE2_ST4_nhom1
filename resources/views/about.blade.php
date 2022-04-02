@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -320,6 +321,10 @@
 		</div>
 	</div>
 
+=======
+@extends('layout')
+@section('content')
+>>>>>>> 9ec98fa93f2f1a83c158b8f30c8507579c5dd67e
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
@@ -356,7 +361,11 @@
 				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
 					<div class="how-bor1 ">
 						<div class="hov-img0">
+<<<<<<< HEAD
 							<img src="{{ asset('images/about-01.jpg') }}" alt="IMG">
+=======
+							<img src="images/about-01.jpg" alt="IMG">
+>>>>>>> 9ec98fa93f2f1a83c158b8f30c8507579c5dd67e
 						</div>
 					</div>
 				</div>
@@ -388,7 +397,11 @@
 				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
 					<div class="how-bor2">
 						<div class="hov-img0">
+<<<<<<< HEAD
 							<img src="{{ asset('images/about-02.jpg') }}" alt="IMG">
+=======
+							<img src="images/about-02.jpg" alt="IMG">
+>>>>>>> 9ec98fa93f2f1a83c158b8f30c8507579c5dd67e
 						</div>
 					</div>
 				</div>
@@ -398,6 +411,7 @@
 	
 		
 
+<<<<<<< HEAD
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
@@ -592,3 +606,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 </body>
 </html>
+=======
+@endsection
+>>>>>>> 9ec98fa93f2f1a83c158b8f30c8507579c5dd67e
