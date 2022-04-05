@@ -9,4 +9,5 @@ class BlogDetailController extends Controller
     function blogDetailFunction(){
         return view('blog-detail');
     }
+    //new
 }
