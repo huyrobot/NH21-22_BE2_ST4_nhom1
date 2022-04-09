@@ -10,6 +10,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ShopingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ViewController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,16 +39,8 @@ use App\Http\Controllers\ProductController;
 
 // });
 
-Route::get('/', [IndexController::class, 'indexFunction']);
-Route::get('/about', [AboutController::class, 'aboutFunction']);
-Route::get('/blog', [BlogController::class, 'blogFunction']);
-Route::get('/contact', [ContactController::class, 'contactFunction']);
-Route::get('/blog-detail', [BlogDetailController::class, 'blogDetailFunction']);
-Route::get('/shoping-cart', [ShopingController::class, 'shopFunction']);
-Route::get('/product-detail', [ProductDetailController::class, 'productDetailFunction']);
-Route::get('/product', [ProductController::class, 'productFunction']);
+Route::get('/{namePage?}', [ViewController::class, 'viewFunction']);
 
-Route::post('register', [IndexController::class, 'register']);
 // Route::resource('/product', ProductController::class);
 /*
 Route::get('/product', [ProductController::class, 'index']);
