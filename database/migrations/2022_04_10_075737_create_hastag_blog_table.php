@@ -14,8 +14,10 @@ class CreateHastagBlogTable extends Migration
     public function up()
     {
         Schema::create('hastag_blog', function (Blueprint $table) {
-            $table->integer('blog_id')->unique();
+            $table->integer('blog_id')->unsigned();
             $table->string('hastag_blog',30)->unique();
+
+            $table->foreign('blog_id')->references('blog_id')->on('blog');
         });
     }
 

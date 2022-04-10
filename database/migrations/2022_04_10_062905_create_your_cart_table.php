@@ -15,7 +15,9 @@ class CreateYourCartTable extends Migration
     {
         Schema::create('your_cart', function (Blueprint $table) {
             $table->id('yourCart_id');
-            $table->integer('user_id')->unique();
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('user_id')->references('user_id')->on('account_user');
             
         });
     }

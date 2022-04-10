@@ -14,10 +14,13 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
-            $table->integer('user_id')->unique();
-            $table->integer('yourCart_id')->unique();
+            $table->integer('user_id')->unsigned();
+            $table->integer('yourCart_id')->unsigned();
             $table->string('coupon_code',50);
             $table->string('address',150);
+
+            $table->foreign('user_id')->references('user_id')->on('account_user');
+            $table->foreign('yourCart_id')->references('yourCart_id')->on('your_cart');
         });
     }
 
