@@ -14,7 +14,7 @@ class CreateAccountAdminTable extends Migration
     public function up()
     {
         Schema::create('account_admin', function (Blueprint $table) {
-            $table->string('username',50);
+            $table->string('username',50)->unique();
             $table->string('password',50);
         });
     }

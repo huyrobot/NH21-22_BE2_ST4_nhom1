@@ -14,8 +14,8 @@ class CreateListYourCartTable extends Migration
     public function up()
     {
         Schema::create('list_your_cart', function (Blueprint $table) {
-            $table->integer('yourCard_id');
-            $table->integer('Product_id');
+            $table->integer('yourCard_id')->unique();
+            $table->integer('Product_id')->unique();
             $table->integer('quantity_product');
         });
     }

@@ -21,10 +21,9 @@ class CreateProductsTable extends Migration
             $table->string('size_Product',5);
             $table->string('color_Product',10);
             $table->string('weight_Product',10);
-            $table->string('hastag_Product',50);
             $table->string('dismensisons_Product',50);
             $table->string('materials_Product',30);
-            $table->text('description_Product');
+            $table->text('description_Product')->nullable();
         });
     }
 

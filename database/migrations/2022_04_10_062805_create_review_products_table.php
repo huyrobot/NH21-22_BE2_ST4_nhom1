@@ -14,8 +14,8 @@ class CreateReviewProductsTable extends Migration
     public function up()
     {
         Schema::create('review_products', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('product_id');
+            $table->integer('user_id')->unique();
+            $table->integer('product_id')->unique();
             $table->text('comment_review');
             $table->integer('rate_review');
         });

@@ -14,8 +14,8 @@ class CreateWishLishTable extends Migration
     public function up()
     {
         Schema::create('wish_lish', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('product_id');
+            $table->integer('user_id')->unique();
+            $table->integer('product_id')->unique();
         });
     }
 
