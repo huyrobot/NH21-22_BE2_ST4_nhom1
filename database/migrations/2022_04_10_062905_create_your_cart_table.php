@@ -16,6 +16,7 @@ class CreateYourCartTable extends Migration
         Schema::create('your_cart', function (Blueprint $table) {
             $table->id('yourCart_id');
             $table->integer('user_id')->unique();
+            
         });
     }
 
