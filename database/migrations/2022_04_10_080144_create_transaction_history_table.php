@@ -14,7 +14,7 @@ class CreateTransactionHistoryTable extends Migration
     public function up()
     {
         Schema::create('transaction_history', function (Blueprint $table) {
-            $table->id('history_id');
+            $table->increments('id');
             $table->integer('user_id');
             $table->string('listOfCart',150);
             $table->integer('total_payments');

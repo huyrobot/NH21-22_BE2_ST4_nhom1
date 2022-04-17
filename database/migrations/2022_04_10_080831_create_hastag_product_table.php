@@ -14,12 +14,12 @@ class CreateHastagProductTable extends Migration
     public function up()
     {
         Schema::create('hastag_product', function (Blueprint $table) {
-            $table->integer('product_id')->unsigned();
+            $table->integer('product_id');
             $table->string('hastag_product',50);
 
-            $table->foreign('product_id')->references('product_id')->on('products');
+            //$table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
         });
-        
+
     }
 
     /**

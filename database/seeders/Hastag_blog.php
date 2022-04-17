@@ -16,8 +16,15 @@ class Hastag_blog extends Seeder
     {
         DB::table('hastag_blog')->insert([
             ['blog_id' => 1, 'hastag_blog' => 'Inspiring'],
-             ['blog_id' => 2, 'hastag_blog' => 'Fashion Trends'],
-              ['blog_id' => 3, 'hastag_blog' => 'Birthday Outfits']
+            ['blog_id' => 1, 'hastag_blog' => 'LifeStyle'],
+            ['blog_id' => 1, 'hastag_blog' => 'StressStyle'],
+            ['blog_id' => 1, 'hastag_blog' => 'Crafts'],
+            ['blog_id' => 2, 'hastag_blog' => 'StressStyle'],
+            ['blog_id' => 2, 'hastag_blog' => 'Denim'],
+            ['blog_id' => 2, 'hastag_blog' => 'FashionTrends'],
+            ['blog_id' => 3, 'hastag_blog' => 'BirthdayOutfits'],
+            ['blog_id' => 3, 'hastag_blog' => 'LifeStyle'],
+            ['blog_id' => 3, 'hastag_blog' => 'Party']
         ]);
     }
 }

@@ -14,11 +14,12 @@ class CreateWishLishTable extends Migration
     public function up()
     {
         Schema::create('wish_lish', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('product_id')->unsigned();
+            $table->integer('user_id');
+            $table->integer('product_id');
 
-            $table->foreign('user_id')->references('user_id')->on('account_user');
-            $table->foreign('product_id')->references('product_id')->on('products');
+            //$table->foreign('user_id')->references('user_id')->on('user')->onDelete('cascade');
+            //$table->foreign('product_id_inWish')->references('product_id')->on('products');
+
         });
     }
 

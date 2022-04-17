@@ -11,6 +11,8 @@ use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ShopingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ViewController;
+use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
