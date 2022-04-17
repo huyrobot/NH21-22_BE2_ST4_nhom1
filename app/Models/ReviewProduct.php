@@ -9,4 +9,12 @@ class ReviewProduct extends Model
 {
     protected $table = 'review_products';
     public $timestamps = false;
+
+    public function userRelationship(){
+        return $this->belongsTo(User::class,'user_id');
+
+    }
+    public function productRelationship(){
+        return $this->belongsTo(Products::class,'product_id');
+    }
 }
