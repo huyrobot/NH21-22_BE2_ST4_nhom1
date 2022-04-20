@@ -9,7 +9,7 @@ class ViewController extends Controller
 {
     public function viewFunction ($namePage = 'index') {
         if($namePage == 'index'){
-            $productArray = Products::all();
+            $productArray = Products::all()->take(20);//get 20 products
             return view($namePage,['data'=>$productArray]);
         }
         else{

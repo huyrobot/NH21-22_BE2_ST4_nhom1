@@ -9,7 +9,7 @@ class Products extends Model
 {
     protected $table = 'products';
     public $timestamps = false;
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'product_id';
 
     public function hastagProductRelationship(){
         return $this->hasMany(HastagProduct::class,'product_id','id');

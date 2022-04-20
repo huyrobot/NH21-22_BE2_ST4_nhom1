@@ -42,7 +42,7 @@ use Illuminate\Routing\RouteGroup;
 // });
 
 Route::get('/{namePage?}', [ViewController::class, 'viewFunction']);
-
+Route::get('/product-detail/{id}', [ProductDetailController::class, 'productDetailFunction']);
 // Route::resource('/product', ProductController::class);
 /*
 Route::get('/product', [ProductController::class, 'index']);
