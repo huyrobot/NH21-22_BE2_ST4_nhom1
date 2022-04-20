@@ -19,9 +19,8 @@ class CreateReviewProductsTable extends Migration
             $table->text('comment_review');
             $table->integer('rate_review');
 
-            $table->foreign('user_id')->references('user_id')->on('account_user');
-            $table->foreign('product_id')->references('product_id')->on('products');
-
+            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

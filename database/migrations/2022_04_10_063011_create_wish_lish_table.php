@@ -17,8 +17,9 @@ class CreateWishLishTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('product_id')->unsigned();
 
-            $table->foreign('user_id')->references('user_id')->on('account_user');
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products');
+
         });
     }
 

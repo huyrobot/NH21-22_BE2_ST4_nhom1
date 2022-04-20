@@ -11,6 +11,8 @@ use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ShopingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ViewController;
+use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,7 @@ use App\Http\Controllers\ViewController;
 // });
 
 Route::get('/{namePage?}', [ViewController::class, 'viewFunction']);
-
+Route::get('/product-detail/{id}', [ProductDetailController::class, 'productDetailFunction']);
 // Route::resource('/product', ProductController::class);
 /*
 Route::get('/product', [ProductController::class, 'index']);

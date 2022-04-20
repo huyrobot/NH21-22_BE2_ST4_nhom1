@@ -18,8 +18,8 @@ class CreateListYourCartTable extends Migration
             $table->integer('Product_id')->unsigned();
             $table->integer('quantity_product');
 
-            $table->foreign('yourCard_id')->references('yourCard_id')->on('your_cart');
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('yourCard_id')->references('id')->on('your_cart');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

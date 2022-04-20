@@ -13,7 +13,7 @@ class CreateAccountAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('account_admin', function (Blueprint $table) {
+        Schema::create('admin', function (Blueprint $table) {
             $table->string('username',50)->unique();
             $table->string('password',50);
         });
@@ -26,6 +26,6 @@ class CreateAccountAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_admin');
+        Schema::dropIfExists('admin');
     }
 }
