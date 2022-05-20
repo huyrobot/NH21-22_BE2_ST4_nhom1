@@ -14,10 +14,16 @@ class User extends Seeder
      */
     public function run()
     {
-        DB::table('user')->insert([
-            ['id'=> 1,'username'=>'a1','password'=>'123'],
-            ['id'=> 2,'username'=>'a2','password'=>'123'],
-            ['id'=> 3,'username'=>'a3','password'=>'123']
+//        $table->id();
+//        $table->string('name');
+//        $table->string('email')->unique();
+//        $table->timestamp('email_verified_at')->nullable();
+//        $table->string('password');
+//        $table->rememberToken();
+//        $table->timestamps();
+        DB::table('users')->insert([
+            ['id'=> 1,'name'=>'admin','email'=>'admin@gmail.com','password'=>'$2y$10$FBMBX5hK4BCpbptOYHL4zeUH4O0f464FdnynWr.PpSuayFH7rYZVq'],
+            ['id'=> 2,'name'=>'huy','email'=>'abc@gmail.com','password'=>'$2y$10$FBMBX5hK4BCpbptOYHL4zeUH4O0f464FdnynWr.PpSuayFH7rYZVq'],
         ]);
     }
 }

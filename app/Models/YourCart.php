@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class YourCart extends Model
 {
+    protected $fillable=[
+        'id',
+        'user_id',
+    ];
     protected $table = 'your_cart';
     public $timestamps = false;
     protected $primaryKey = 'id';

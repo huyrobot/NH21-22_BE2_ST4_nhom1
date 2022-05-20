@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    protected $fillable=[
+        'id',
+        'time_blog',
+        'title_blog',
+        'picture_blog',
+        'content_blog',
+    ];
     protected $table = 'blog';
     public $timestamps = false;
     protected $primaryKey = 'id';

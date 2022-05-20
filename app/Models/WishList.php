@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class WishList extends Model
 {
+    protected $fillable=[
+        'user_id',
+        'product_id',
+    ];
+    protected $primaryKey = 'user_id';
     protected $table = 'wish_lish';
     public $timestamps = false;
     public function userRelationship(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(UserOfCoza::class,'user_id');
 
     }
     public function productRelationship(){

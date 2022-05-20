@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class HastagProduct extends Model
 {
+    protected $fillable=[
+        'product_id',
+        'hastag_product',
+    ];
+    protected $primaryKey = 'product_id';
     protected $table = 'hastag_product';
     public $timestamps = false;
 

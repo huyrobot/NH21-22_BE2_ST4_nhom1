@@ -1,11 +1,11 @@
 @extends('layout')
-@section('content')	
+@section('content')
 
 
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="{{ asset('index.html') }}" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="{{ asset('index.blade.php') }}" class="stext-109 cl8 hov-cl1 trans-04">
 				Home
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -46,7 +46,7 @@
 						<div class="p-t-32">
 							<span class="flex-w flex-m stext-111 cl2 p-b-19">
 								<span>
-									<span class="cl4">By</span> Admin  
+									<span class="cl4">By</span> Admin
 									<span class="cl12 m-l-4 m-r-6">|</span>
 								</span>
 
@@ -56,7 +56,7 @@
 								</span>
 
 								<span>
-									StreetStyle, Fashion, Couple  
+									StreetStyle, Fashion, Couple
 									<span class="cl12 m-l-4 m-r-6">|</span>
 								</span>
 
@@ -368,9 +368,9 @@
 				</div>
 			</div>
 		</div>
-	</section>	
-	
-		
+	</section>
+
+
 
 	<!-- Footer -->
 	@endsection
