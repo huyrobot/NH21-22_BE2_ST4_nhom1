@@ -141,7 +141,7 @@
                     <div class="block1 wrap-pic-w">
                         <img src="{{ asset('images/banner-02.jpg') }}" alt="IMG-BANNER">
 
-                        <a href="{{ asset('/product/man') }}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <a href="{{ asset('/product/men') }}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                             <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
                                 Men
@@ -166,7 +166,7 @@
                     <div class="block1 wrap-pic-w">
                         <img src="{{ asset('images/banner-03.jpg') }}" alt="IMG-BANNER">
 
-                        <a href="{{ asset('/product/all') }}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <a href="{{ asset('/product') }}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                             <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
                                 All
@@ -224,7 +224,7 @@
                             <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                                 <i class="zmdi zmdi-search"></i>
                             </button>
-                            <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="search" id="" name="search-index" placeholder="Search">
+                            <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="search" id="" name="search-product" placeholder="Search">
                         </div>
                     </form>
                 </div>
@@ -445,13 +445,6 @@
                                 ${{ $value->price_Product}}
                             </span>
                                 </div>
-
-                                <div class="block2-txt-child2 flex-r p-t-3">
-                                    <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-                                        <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -539,15 +532,17 @@
                     </div>
                 @endforeach
             </div>
-            @if(empty($search_index))
-                {{ $data->links() }}
+            @if(empty($search_product))
+                <div style="margin-left: auto;margin-right: auto">
+                    {{ $data->links('vendor.pagination.customPhanTrang') }}
+                </div>
             @endif
             <!-- Load more -->
             <!-- <div class="flex-c-m flex-w w-full p-t-45">
-                <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-                    Load More
-                </a>
-            </div> -->
+                    <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                        Load More
+                    </a>
+                </div> -->
 
         </div>
     </section>

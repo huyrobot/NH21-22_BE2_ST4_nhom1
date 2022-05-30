@@ -39,7 +39,7 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th class="column-7 text-center edit-all"><a style="color: #555" href="#"><i class="fa fa-floppy-o" ></i> All</a></th>
+                                    <th class="column-7 text-center edit-all"><a style="color: #555" href="#"><i class="fa fa-floppy-o"></i> All</a></th>
                                     <th class="column-6 text-center del-all"><a style="color: #555" href="#"><i class="fa fa-minus-circle"></i> All</a></th>
                                 </tr>
 
@@ -54,11 +54,11 @@
                                             <td class="column-2 text-left col-md-2"> {{$item['productInfo']->name_Product}}</td>
                                             <td class="column-3 text-center col-md-2">$ {{$item['productInfo']->price_Product}}</td>
                                             <td class="column-4 text-center col-md-3">
-                                                <input data-id="{{$item['productInfo']->id}}" id="qty-item-{{$item['productInfo']->id}}" type="number" min='1' class="form-control" value="{{$item['quantity']}}"  oninput="this.value = !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : 1">
+                                                <input data-id="{{$item['productInfo']->id}}" id="qty-item-{{$item['productInfo']->id}}" type="number" min='1' class="form-control" value="{{$item['quantity']}}" oninput="this.value = !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : 1">
                                             </td>
                                             <td class="total-price column-5 text-center col-md-2">$ {{$item['price']}}</td>
-                                            <td class="column-7 text-center col-md-1"><a href="#"><i class="fa fa-floppy-o" aria-hidden="true" onclick="SaveListItemCart(<?php echo $item['productInfo']->id; ?>)"></i></a></td>
-                                            <td class="column-6 text-center col-md-1"><a href="#"><i class="fa fa-minus-circle" aria-hidden="true" onclick="DelListItemCart(<?php echo $item['productInfo']->id; ?>)"></i></a></td>
+                                            <td class="column-7 text-center col-md-1"><a href="#"><i style="color: grey" class="fa fa-floppy-o" aria-hidden="true" onclick="SaveListItemCart(<?php echo $item['productInfo']->id; ?>)"></i></a></td>
+                                            <td class="column-6 text-center col-md-1"><a href="#"><i style="color: grey" class="fa fa-minus-circle" aria-hidden="true" onclick="DelListItemCart(<?php echo $item['productInfo']->id; ?>)"></i></a></td>
 
                                         </tr>
                                     @endforeach
@@ -110,9 +110,11 @@
                             </div>
                         </div>
 
-                        <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        <a href="<?php if(session('account')!=null) {
+                                            echo url('/checkout');
+                                        }else {echo url('/admin/login');}  ?>" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                             Proceed to Checkout
-                        </button>
+                        </a>
                     </div>
                 </div>
 

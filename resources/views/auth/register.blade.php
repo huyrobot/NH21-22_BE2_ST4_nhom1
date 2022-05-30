@@ -1,7 +1,7 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
+<x-guest-layout >
+    <x-auth-card >
+        <x-slot name="logo" >
+            <a href="/" style="margin-top: 100px">
                 <img src="{{ asset('/images') }}/newLogo.jpg" width="200px" height="200px" style="border-radius: 20px">
                 <img src="{{ asset('/images/icons') }}/logo-01.png" width="150px" style="margin-top: 20px;margin-left: auto;margin-right: auto">
 
@@ -52,7 +52,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="ml-4" style="background: #00ad5f">
                     {{ __('Register') }}
                 </x-button>
             </div>

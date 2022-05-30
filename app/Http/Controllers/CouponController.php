@@ -2,53 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Menu\CouponRequest;
 use Illuminate\Http\Request;
 use App\Models\Coupon;
+use App\Http\Services\CouponService;
+
 class CouponController extends Controller
 {
-    public function getCoupon()
-    {
-        $coupon = Coupon::paginate(5);
-        return view('boxCoupon.crudCoupon',compact('coupon'))
-        ->with('i',(request()->input('page',1) -1 * 5));;
-    }
-    public function add()
-    {
-        return view('boxCoupon.addCoupon');
-    }
-    public function save(Request $request)
-    {
-       $coupon_code = $request->get('coupon_code');
-       $value = $request->get('value');
-       Coupon::create([
-           'coupon_code'=> $coupon_code,
-           'value'=>$value,
-       ]);
 
-       return redirect()->route('boxCoupon.crudCoupon')
-       ->with('thongbao','Them thanh cong!');
+    protected $couponService;
+    public function __construct(CouponService $couponService)
+    {
+        $this->couponService = $couponService;
     }
-
-    public function delete($coupon_code)
-    {
-        $value = Coupon::findOrFail($coupon_code);
-        $value->delete();
-        return redirect()->route('boxCoupon.crudCoupon')
-        ->with('thongbao','Xoa thanh cong!');
-    }    
-    public function edit($id)
-    {
-        $value = Coupon::findOrFail($id);
-        return  view('/boxCoupon/editCoupon',['value'=>$value]);
-    }
-    public function update(Request $request,$id)
-    {
-        $value = Coupon::findOrFail($id);
-        
-        $value->update([
-            'value'=>$request->get('value'),
+    public function insertCoupon(){
+        return view('admin.addmenu.insertCoupon',[
+            'title' => 'Thêm Mã giảm giá',
+            'title2' => 'Thêm dữ liệu',
         ]);
-        return redirect()->route('boxCoupon.crudCoupon')
-        ->with('thongbao','Sua thanh cong!');
     }
+    public function createCoupon(CouponRequest $request){
+        $result = $this->couponService->create($request);
+        return redirect()->back();
+    }
+
+
 }

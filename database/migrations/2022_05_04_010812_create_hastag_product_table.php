@@ -14,6 +14,7 @@ class CreateHastagProductTable extends Migration
     public function up()
     {
         Schema::create('hastag_product', function (Blueprint $table) {
+            $table->id();
             $table->integer('product_id')->unsigned();
             $table->string('hastag_product',50);
 

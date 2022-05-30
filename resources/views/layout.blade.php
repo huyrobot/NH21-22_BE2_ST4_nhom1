@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+// Start the session
+session_start();
+$_SESSION["kiemTraDangNhap"] = 0;
+?>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,12 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.png') }}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!--===============================================================================================-->
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- thu vien add  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
@@ -40,7 +47,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <!--===============================================================================================-->
-
+    <style>
+        .whatsapp-chat {
+            bottom: 10px;
+            left: 10px;
+            position: fixed;
+        }
+    </style>
 
 </head>
 
@@ -54,26 +67,31 @@
         <div class="top-bar">
             <div class="content-topbar flex-sb-m h-full container">
                 <div class="left-top-bar">
-                    Free shipping for standard order over $100
+
+                    <input type="hidden" id='account' value="{{ session('account') }}">
+                    <p><a style="color: #ffff" href="tel:0987654321">Phone : 0987654321</a></p>
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        Help & FAQs
+
+
+
+                    <a style="color: #ffffff;" class="flex-c-m trans-04 p-lr-25">
+                        @php
+                            if (isset(Auth::user()->name) && (Auth::user()->name)!= null){
+                            echo Auth::user()->name;
+                            $_SESSION["kiemTraDangNhap"] = 1;
+                            }
+                            else{
+                            echo 'My Account';
+                            }
+                        @endphp
                     </a>
 
-                    <a href="{{ asset('/dashboard') }}" class="flex-c-m trans-04 p-lr-25">
-                        My Account
-                    </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        EN
-                    </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        USD
-                    </a>
                 </div>
+
             </div>
         </div>
 
@@ -93,23 +111,43 @@
 
                         </li>
 
-                        <li class="label1 <?php if(strstr( url()->current(), 'product' ) == 'product'  ){echo 'active-menu'; }else{ echo '';} ?>" data-label1="hot">
+                        <li class="label1 <?php if (strstr(url()->current(), 'product') == 'product') {
+                                                    echo 'active-menu';
+                                                } else {
+                                                    echo '';
+                                                } ?>" data-label1="hot">
                             <a href="{{ url('/product') }}">Products</a>
                         </li>
 
-                        <li class="<?php if(strstr( url()->current(),'shoping-cart' ) == 'shoping-cart'){echo 'active-menu'; }else{ echo '';} ?>">
+                        <li class="<?php if (strstr(url()->current(), 'shoping-cart') == 'shoping-cart') {
+                                            echo 'active-menu';
+                                        } else {
+                                            echo '';
+                                        } ?>">
                             <a href="{{ url('/shoping-cart') }}">Shoping Cart</a>
                         </li>
 
-                        <li class="<?php if(strstr( url()->current(),'blog' ) == 'blog'){echo 'active-menu'; }else{ echo '';} ?>">
+                        <li class="<?php if (strstr(url()->current(), 'blog') == 'blog') {
+                                            echo 'active-menu';
+                                        } else {
+                                            echo '';
+                                        } ?>">
                             <a href="{{ url('/blog') }}">Blog</a>
                         </li>
 
-                        <li class="<?php if(strstr( url()->current(),'about' ) == 'about'){echo 'active-menu'; }else{ echo '';} ?>">
+                        <li class="<?php if (strstr(url()->current(), 'about') == 'about') {
+                                            echo 'active-menu';
+                                        } else {
+                                            echo '';
+                                        } ?>">
                             <a href="{{ url('/about') }}">About</a>
                         </li>
 
-                        <li class="<?php if(strstr( url()->current(),'contact' ) == 'contact'){echo 'active-menu'; }else{ echo '';} ?>">
+                        <li class="<?php if (strstr(url()->current(), 'contact') == 'contact') {
+                                            echo 'active-menu';
+                                        } else {
+                                            echo '';
+                                        } ?>">
                             <a href="{{ url('/contact') }}">Contact</a>
                         </li>
                     </ul>
@@ -138,22 +176,16 @@
 
                         @endif
                     </div>
-                    <div style="display: flex;margin-top: 3%" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-                        @if(Session::has('cart') != null)
 
-                            <div style="margin-bottom: 20px;position: relative;">
-                                <i style="font-size: 25px;;" class="zmdi zmdi-favorite-outline" aria-hidden="true"></i>
-                                <span style="font-size: 13px;position: absolute; background-color: #717FE0;color: whitesmoke;padding-right: 3px; padding-left: 3px;margin-right: 20px" id="total-quantity-show">{{Session::get('cart')->totalQuantity}}</span>
+                    <div style="margin-left: 80px" class="btn-group">
+                        <button type="button" class="btn btn-white  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i style="font-size: 25px; color: #333333" class="material-icons">account_circle</i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="{{ asset('/admin/login') }}" class="dropdown-item " type="button">Login</a>
+                            <a href="{{ url('/logout') }}" class="dropdown-item " type="button">Logout</a>
 
-                            </div>
-                        @else
-                            <div style="margin-bottom: 20px;position: relative;">
-                                <i style="font-size: 25px;;" class="zmdi zmdi-favorite-outline" aria-hidden="true"></i>
-                                <span style="font-size: 13px;position: absolute; background-color: #717FE0;color: whitesmoke;padding-right: 3px; padding-left: 3px;margin-right: 20px" id="total-quantity-show">0</span>
-
-                            </div>
-
-                        @endif
+                        </div>
                     </div>
 
                 </div>
@@ -170,17 +202,31 @@
 
         <!-- Icon header -->
         <div class="wrap-icon-header flex-w flex-r-m m-r-15">
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search" data-notify="3">
+
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="1">
-                <i class="zmdi zmdi-shopping-cart"></i>
+            <div style="display: flex;margin-top: 3%" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+                @if(Session::has('cart') != null)
+
+                    <div style="position: relative;">
+                        <i style="font-size: 25px;;" class="zmdi zmdi-shopping-cart" aria-hidden="true"></i>
+                        <span style="font-size: 13px;position: absolute; background-color: #717FE0;color: whitesmoke;padding-right: 3px; padding-left: 3px;margin-right: 20px" id="total-quantity-show">{{Session::get('cart')->totalQuantity}}</span>
+
+                    </div>
+                @else
+                    <div style="margin-bottom: 20px;position: relative;">
+                        <i style="font-size: 25px;;" class="zmdi zmdi-shopping-cart" aria-hidden="true"></i>
+                        <span style="font-size: 13px;position: absolute; background-color: #717FE0;color: whitesmoke;padding-right: 3px; padding-left: 3px;margin-right: 20px" id="total-quantity-show">0</span>
+
+                    </div>
+
+                @endif
             </div>
 
-            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-                <i class="zmdi zmdi-favorite-outline"></i>
-            </a>
+
+
         </div>
 
         <!-- Button show menu -->
@@ -202,12 +248,20 @@
             </li>
 
             <li>
+
                 <div class="right-top-bar flex-w h-full">
                     <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        Help & FAQs
+                        @php
+                            if (isset(Auth::user()->name)){
+                            echo Auth::user()->name;
+                            }
+                            else{
+                            echo 123;
+                            }
+                        @endphp
                     </a>
 
-                    <a href="{{ asset('/dashboard') }}" class="flex-c-m p-lr-10 trans-04">
+                    <a href="{{ asset('/admin/login') }}" class="flex-c-m p-lr-10 trans-04">
                         My Account
                     </a>
 
@@ -215,8 +269,8 @@
                         EN
                     </a>
 
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        USD
+                    <a href="{{ url('/') }}" class="flex-c-m p-lr-10 trans-04">
+                        Logout
                     </a>
                 </div>
             </li>
@@ -262,7 +316,7 @@
                 <button class="flex-c-m trans-04">
                     <i class="zmdi zmdi-search"></i>
                 </button>
-                <input class="plh3" type="text" name="search" placeholder="Search...">
+                <input class="plh3" type="text" name="search-product" placeholder="Search...">
             </form>
         </div>
     </div>
@@ -310,7 +364,6 @@
                             </div>
                         </li>
                     @endif
-
                 </div>
             </ul>
 
@@ -320,7 +373,9 @@
                         View Cart
                     </a>
 
-                    <a href="{{ asset('shoping-cart.html') }}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                    <a href="<?php if(session('account')!=null) {
+                                            echo url('/checkout');
+                                        }else {echo url('/admin/login');}  ?>" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
                         Check Out
                     </a>
                 </div>
@@ -339,7 +394,7 @@
 <footer class="bg3 p-t-75 p-b-32">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-4 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
                     Categories
                 </h4>
@@ -371,7 +426,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-4 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
                     Help
                 </h4>
@@ -379,31 +434,27 @@
                 <ul>
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Track Order
+                            Contact
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Returns
+                            Blog
                         </a>
                     </li>
 
                     <li class="p-b-10">
                         <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shipping
+                            About
                         </a>
                     </li>
 
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            FAQs
-                        </a>
-                    </li>
+
                 </ul>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-lg-4 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
                     GET IN TOUCH
                 </h4>
@@ -413,59 +464,42 @@
                 </p>
 
                 <div class="p-t-27">
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-facebook"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-instagram"></i>
                     </a>
 
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                    <a  class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
                         <i class="fa fa-pinterest-p"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
-                </h4>
 
-                <form>
-                    <div class="wrap-input1 w-full p-b-4">
-                        <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
-                        <div class="focus-input1 trans-04"></div>
-                    </div>
-
-                    <div class="p-t-18">
-                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
 
         <div class="p-t-40">
             <div class="flex-c-m flex-w p-b-18">
-                <a href="#" class="m-all-1">
+                <a class="m-all-1">
                     <img src="{{ asset('images/icons/icon-pay-01.png') }}" alt="ICON-PAY">
                 </a>
 
-                <a href="#" class="m-all-1">
+                <a class="m-all-1">
                     <img src="{{ asset('images/icons/icon-pay-02.png') }}" alt="ICON-PAY">
                 </a>
 
-                <a href="#" class="m-all-1">
+                <a class="m-all-1">
                     <img src="{{ asset('images/icons/icon-pay-03.png') }}" alt="ICON-PAY">
                 </a>
 
-                <a href="#" class="m-all-1">
+                <a class="m-all-1">
                     <img src="{{ asset('images/icons/icon-pay-04.png') }}" alt="ICON-PAY">
                 </a>
 
-                <a href="#" class="m-all-1">
+                <a  class="m-all-1">
                     <img src="{{ asset('images/icons/icon-pay-05.png') }}" alt="ICON-PAY">
                 </a>
             </div>
@@ -474,7 +508,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                </script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a  target="_blank">Colorlib</a> &amp; distributed by <a  target="_blank">ThemeWagon</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
             </p>
@@ -484,11 +518,21 @@
 
 
 <!-- Back to top -->
-<div class="btn-back-to-top" id="myBtn">
+<div style="bottom: 100px; right: 35px" class="btn-back-to-top" id="myBtn">
         <span class="symbol-btn-back-to-top">
             <i class="zmdi zmdi-chevron-up"></i>
         </span>
 </div>
+
+<!-- whatsapp chat -->
+<div class="whatsapp-chat">
+    <a  href="<?php if (session('account') != null) {
+                        echo "https://wa.me/" . session('account')[0]->phone . "?text=I'm%20interested%20in%20your%20car%20for%20sale";
+                    } ?>" target="_blank">
+        <img style="width: 60px;height: 60px" src="{{ asset('images/Whatsapplogo.png') }}" alt="whatsapp-logo" height="80px" width="80px">
+    </a>
+</div>
+
 <!--===============================================================================================-->
 <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
@@ -608,13 +652,37 @@
 <!-- Bootstrap theme -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var account = document.querySelector('#account').value;
+    if(account != ''){
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6289de2bb0d10b6f3e736c44/1g3l8nmpm';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    }
+
+</script>
+<!--End of Tawk.to Script-->
 
 <!-- JavaScript -->
 <script>
-
     //Add to cart
     function AddCart(id) {
         $.ajax({
@@ -733,7 +801,86 @@
 
     }
 
+    //Check out
+    $(".PlaceOrder").on("click", function() {
 
+        if ($(".fname").val() != "" && $(".lname").val() != "" && $(".email").val() != "" && $(".phone").val() != "" && $(".address").val() != "" && $(".city").val() != "") {
+            var lists = [];
+            $("table tbody tr td").each(function() {
+                $(this).find("input").each(function() {
+                    var element = {
+                        key: $(this).data('id'),
+                        qty: $(this).data('qty'),
+                        price: $(this).data('price'),
+                        fname: $(".fname").val(),
+                        lname: $(".lname").val(),
+                        email: $(".email").val(),
+                        phone: $(".phone").val(),
+                        city: $(".city").val(),
+                        address: $(".address").val(),
+                    };
+                    lists.push(element);
+                });
+            });
+
+            $.ajax({
+                url: "Place-Order",
+                type: 'POST',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "data": lists,
+                }
+            }).done(function() {
+                alertify.success('Place order success');
+            });
+        } else {
+            alertify.warning('One or more fields are available');
+        }
+    });
+
+    //comment
+    load_comment();
+    function load_comment() {
+        var prod_id = $('.prod_id').val();
+        var _token = $('input[name="_token"]').val();
+
+        $.ajax({
+            url:"{{ url('/load-comment') }}",
+            method: "POST",
+            data:{prod_id:prod_id,_token:_token},
+            success:function(data){
+                $('#comment_show').html(data);
+            }
+        });
+
+    }
+    $('.send_comment').click(function(){
+
+        var prod_id = $('.prod_id').val();
+        var comment_email = $('.comment_email').val();
+        var comment_content = $('.comment_content').val();
+        //alert(comment_content);
+        var _token = $('input[name="_token"]').val();
+        if(comment_content != "" && comment_email != ""){
+            $.ajax({
+                url:"{{ url('/send-comment') }}",
+                method: "POST",
+                data:{
+                    prod_id:prod_id,
+                    comment_content:comment_content,
+                    comment_email:comment_email,
+                    _token:_token
+                },
+                success:function(){
+                    load_comment();
+                    alertify.success('Comment success');
+                }
+            });
+        }else{
+            alertify.warning('One or more fields are available');
+        }
+
+    });
 </script>
 
 </body>

@@ -14,6 +14,7 @@ class CreateHastagBlogTable extends Migration
     public function up()
     {
         Schema::create('hastag_blog', function (Blueprint $table) {
+            $table->id();
             $table->integer('blog_id')->unsigned();
             $table->string('hastag_blog',30);
 

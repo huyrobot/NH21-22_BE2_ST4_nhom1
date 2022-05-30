@@ -7,9 +7,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -139,18 +146,19 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ProjectX/NH21-22_BE2_ST4_nhom1_10.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ProjectX/NH21-22_BE2_ST4_nhom1_15.0/resources/views/admin/listmenu&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_7.0\resources\css" />
-      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_7.0\resources\js" />
-      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_5.0\public\images" />
-      <recent name="D:\ProjectX\testBreeze - Copy\public" />
-      <recent name="D:\ProjectX\testBreeze - Copy\resources" />
+      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_15.0\resources\views\admin\listmenu" />
+      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_15.0\app\Http\Services" />
+      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_15.0\resources\views\admin\addmenu" />
+      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_15.0\app\Http\Requests\Menu" />
+      <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_14.0\resources\views\admin\addmenu" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ProjectX\NH21-22_BE2_ST4_nhom1_10.0\resources\views\user" />
@@ -190,6 +198,28 @@
       <workItem from="1652918791091" duration="4859000" />
       <workItem from="1652972388467" duration="4062000" />
       <workItem from="1652984814487" duration="2688000" />
+      <workItem from="1653024437860" duration="33094000" />
+      <workItem from="1653063534836" duration="408000" />
+      <workItem from="1653089931625" duration="3785000" />
+      <workItem from="1653094100137" duration="36000" />
+      <workItem from="1653099739736" duration="3980000" />
+      <workItem from="1653131767413" duration="9300000" />
+      <workItem from="1653152398376" duration="516000" />
+      <workItem from="1653185277615" duration="41811000" />
+      <workItem from="1653271856114" duration="11001000" />
+      <workItem from="1653290766346" duration="152000" />
+      <workItem from="1653311423532" duration="7322000" />
+      <workItem from="1653349628669" duration="45018000" />
+      <workItem from="1653437138607" duration="764000" />
+      <workItem from="1653440972728" duration="1673000" />
+      <workItem from="1653442678021" duration="4000" />
+      <workItem from="1653443697609" duration="7200000" />
+      <workItem from="1653707853162" duration="1134000" />
+      <workItem from="1653717775236" duration="27349000" />
+      <workItem from="1653788995692" duration="16447000" />
+      <workItem from="1653826071899" duration="9262000" />
+      <workItem from="1653876673466" duration="5699000" />
+      <workItem from="1653889628588" duration="1427000" />
     </task>
     <servers />
   </component>

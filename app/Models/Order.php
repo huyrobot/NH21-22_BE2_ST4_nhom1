@@ -7,22 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable=[
-        'user_id',
-        'yourCart_id',
-        'coupon_code',
+    use HasFactory;
+    protected $table = 'orders';
+     protected $fillable=[
+        'fname',
+        'lname',
+        'email',
+        'phone',
         'address',
+        'city',
+        'state',
     ];
-    protected $primaryKey = 'user_id';
-
-    protected $table = 'order';
-    public $timestamps = false;
-
-    public function userRelationship(){
-        return $this->belongsTo(UserOfCoza::class,'user_id');
-
-    }
-    public function yourCartRelationship(){
-        return $this->belongsTo(YourCart::class,'yourCart_id');
-    }
 }

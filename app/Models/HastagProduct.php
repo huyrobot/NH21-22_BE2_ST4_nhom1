@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class HastagProduct extends Model
 {
+    use HasFactory;
+
     protected $fillable=[
+        'id',
         'product_id',
         'hastag_product',
     ];
-    protected $primaryKey = 'product_id';
+    protected $primaryKey = 'id';
     protected $table = 'hastag_product';
     public $timestamps = false;
 
